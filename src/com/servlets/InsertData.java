@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.jdbc.DatabaseConnection;
 
@@ -23,6 +24,9 @@ public class InsertData extends HttpServlet {
 		Connection con = null;
 		PreparedStatement st = null;
 		try {
+			
+			HttpSession session = request.getSession(true);
+			session.setAttribute("rohit", "Rohit101");
 
 			// Initialize the database
 			con = DatabaseConnection.initializeDatabase();
